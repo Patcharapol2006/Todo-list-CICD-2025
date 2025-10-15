@@ -1747,8 +1747,14 @@ https://flask-todo-app.onrender.com
 **เพิ่ม RENDER_DEPLOY_HOOK_URL และ RENDER_APP_URL บน GitHub Repository**
 **ทำการ push ไปที่ GitHub Repository** แล้วตรวจสอบผลการทำงาน
 ## บันทึกรูปผลการทำงาน
+<img width="1919" height="995" alt="image" src="https://github.com/user-attachments/assets/e25d3eec-bd27-4242-89e7-9b1243df683e" />
+
 ```bash
 # บันทึกรูปผลการทำงานที่นี่
+Run curl -X POST 
+curl: (2) no URL specified
+curl: try 'curl --help' or 'curl --manual' for more information
+Error: Process completed with exit code 2.
 ``` 
 
 ---
