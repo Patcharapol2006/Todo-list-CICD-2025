@@ -2147,13 +2147,13 @@ docker-compose up -d
 
 ตรวจสอบว่าทำสำเร็จทุกข้อ:
 
-- [ ] สร้าง GitHub repository และ clone ลงเครื่อง
-- [ ] สร้าง Flask application ที่มี CRUD operations ครบถ้วน
-- [ ] เขียน tests ที่ครอบคลุม code coverage > 80%
-- [ ] สร้าง Dockerfile ที่ optimize แล้ว
-- [ ] สร้าง docker-compose.yml ที่แยก services
-- [ ] รัน application ด้วย Docker และทดสอบใน local สำเร็จ
-- [ ] สร้าง GitHub Actions workflow ที่มีทั้ง CI และ CD
+- [✔️ ] สร้าง GitHub repository และ clone ลงเครื่อง
+- [✔️ ] สร้าง Flask application ที่มี CRUD operations ครบถ้วน
+- [✔️ ] เขียน tests ที่ครอบคลุม code coverage > 80%
+- [✔️ ] สร้าง Dockerfile ที่ optimize แล้ว
+- [✔️ ] สร้าง docker-compose.yml ที่แยก services
+- [✔️ ] รัน application ด้วย Docker และทดสอบใน local สำเร็จ
+- [ ✔️] สร้าง GitHub Actions workflow ที่มีทั้ง CI และ CD
 - [ ] Deploy ไปยัง Render สำเร็จ
 - [ ] Deploy ไปยัง Railway สำเร็จ
 - [ ] ทดสอบ API endpoints บน production
@@ -2166,13 +2166,15 @@ docker-compose up -d
 1. **Docker Architecture**:
    - เหตุใดจึงต้องแยก database และ application เป็นคนละ containers ?
    - Multi-stage build มีประโยชน์อย่างไร?
+   - Multi-stage build ช่วยสร้าง Docker image ที่มีขนาดเล็กลงและปลอดภัยขึ้น โดยการแยกสภาพแวดล้อมตอน build ออกจากตอน run จริง ทำให้ image สุดท้ายมีเฉพาะสิ่งที่จำเป็นสำหรับการรันแอปพลิเคชัน ไม่มีเครื่องมือหรือ library ที่ใช้แค่ตอน build ปะปนไป
 
 2. **Testing Strategy**:
    - การวัด code coverage มีความสำคัญอย่างไร?
+   - Code coverage เป็นตัวชี้วัดว่าโค้ดส่วนไหนบ้างที่ถูกทดสอบโดย automated tests ซึ่งช่วยให้เห็นจุดที่ยังขาดการทดสอบ มันช่วยเพิ่มความมั่นใจในการ refactor หรือเพิ่มฟีเจอร์ใหม่ๆ ว่าจะไม่ทำให้ส่วนที่เคยทำงานได้ดีแล้วพังลง
 
 3. **Deployment**:
-   - Health check endpoint มีความสำคัญอย่างไร?
-   - Render และ Railway มีความแตกต่างกันอย่่างไร?
+   - Health check endpoint มีความสำคัญอย่างไร? Health check endpoint เป็น URL ที่ระบบ hosting ใช้ตรวจสอบว่าแอปพลิเคชันของเรายังทำงานเป็นปกติและพร้อมให้บริการหรือไม่ หากตรวจสอบแล้วพบว่าไม่ปกติ ระบบจะทำการรีสตาร์ท container ให้โดยอัตโนมัติ เพื่อให้แอปกลับมาใช้งานได้เร็วที่สุด
+   - Render และ Railway มีความแตกต่างกันอย่่างไร? Render มีโครงสร้างบริการและราคาที่ชัดเจน เหมาะกับงานโปรดักชันที่ต้องการความเสถียรและคาดการณ์ค่าใช้จ่ายได้ ส่วน Railway เน้นความเรียบง่ายและคิดราคาตามการใช้งานจริง ซึ่งสะดวกและรวดเร็วสำหรับโปรเจกต์ขนาดเล็กและช่วงพัฒนา
 
 
 ---
