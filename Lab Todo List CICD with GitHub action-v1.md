@@ -1380,6 +1380,8 @@ start htmlcov/index.html  # Windows
 ```
 
 ## แนบรูปผลการทดลองการทดสอบระบบ
+<img width="1049" height="682" alt="image" src="https://github.com/user-attachments/assets/da968417-cd6b-4e56-96c5-9874b16aa209" />
+
 ```plaintext
 # แนบรูปผลการทดลองที่นี่
 
@@ -1388,6 +1390,21 @@ start htmlcov/index.html  # Windows
 ให้จับคู่ Code ส่วนของการทดสอบ กับ Code การทำงาน มาอย่างน้อย 3 ฟังก์ชัน พร้อมอธิบายการทำงานของแต่ละกรณี
 ```plaintext
 # ตอบคำถามที่นี่
+1️. health_check() ↔ test_health_endpoint_success
+ทดสอบ /api/health
+ตรวจว่าเชื่อมต่อฐานข้อมูลได้ (SELECT 1)
+ต้องได้ status code 200 และ status = "healthy"
+
+2️. create_todo() ↔ test_create_todo_with_full_data
+ทดสอบ /api/todos (POST)
+ส่ง JSON ที่มี title และ description
+ต้องได้ status 201, success=True, และ title ตรงกับที่ส่งมา
+
+3️. delete_todo() ↔ test_delete_todo
+ทดสอบ /api/todos/<id> (DELETE)
+ลบ todo ที่สร้างไว้
+ต้องได้ status 200, success=True และเมื่อลอง GET ซ้ำต้องเจอ 404
+
 
 
 ```
